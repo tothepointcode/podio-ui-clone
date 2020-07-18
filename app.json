@@ -1,0 +1,12 @@
+{
+  "name": "Podio UI Clone",
+  "displayName": "Podio UI Clone",
+  "expo": {
+    "name": "podioUiClone",
+    "slug": "podioUiClone",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
