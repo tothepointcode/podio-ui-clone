@@ -9,12 +9,12 @@ import Details from './../screens/Details';
 const Stack = createStackNavigator();
 
 const HomeStack = () => {
-    return (
-        <Stack.Navigator>
-            <Stack.Screen name="Home" component={Home} />
-            <Stack.Screen name="Details" component={Details} />
-        </Stack.Navigator>
-    );
-}
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Details" component={Details} />
+    </Stack.Navigator>
+  );
+};
 
 export default HomeStack;
