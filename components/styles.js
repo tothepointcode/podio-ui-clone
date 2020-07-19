@@ -5,8 +5,8 @@ import styled from 'styled-components/native';
 export const colors = {
   primary: '#000000',
   secondary: '#6147ff',
-  tertiary: '#6147ff',
-  alternate: '#6147ff',
+  tertiary: '#ff4773',
+  alternate: '#ff8947',
   light: '#ffffff',
   gray: '#A0AEC0',
 };
