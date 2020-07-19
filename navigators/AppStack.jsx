@@ -22,7 +22,7 @@ const AppStack = () => {
       screenOptions={{
         headerStyle: {
           backgroundColor: primary,
-          height: 110
+          height: 110,
         },
         headerTintColor: light,
         headerTitleStyle: {
@@ -39,19 +39,7 @@ const AppStack = () => {
           component={Login}
         />
       )}
-      {authenticated && (
-        <Stack.Screen
-          options={{
-            headerTitle: (props) => <StyledTitle {...props} authenticated />,
-            headerRight: (props) => <StyledAvatar />,
-            headerRightContainerStyle: {
-              paddingRight: 20,
-            },
-          }}
-          name="TabStack"
-          component={TabStack}
-        />
-      )}
+      {authenticated && <Stack.Screen options={{ headerShown: false }} name="TabStack" component={TabStack} />}
     </Stack.Navigator>
   );
 };

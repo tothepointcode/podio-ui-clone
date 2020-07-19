@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, ScrollView, Image } from 'react-native';
+import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 
 import { MainView, colors } from './../components/styles';
@@ -44,7 +44,6 @@ const SubsTitle = styled.Text`
 const SubsChannel = styled.Text`
   color: ${gray};
   font-size: 15px;
-
 `;
 
 const TileIcon = styled.Text`
@@ -81,7 +80,7 @@ const thirdSection = [
   { image: require('./../assets/pic3.jpg') },
 ];
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <MainView>
       <StyledRow contentContainerStyle={{ alignItems: 'center' }} horizontal>
@@ -96,13 +95,16 @@ const Home = () => {
       </StyledRow>
       <SectionTitle>Subscribed</SectionTitle>
       <StyledRow horizontal>
-        {secondSection.map(({ image, title, channel }, index) => {
+        {secondSection.map((item, index) => {
+          const { image, title, channel } = item;
           return (
-            <SubscribedItem key={index}>
-              <Image style={{ width: 135, height: 135, borderRadius: 25 }} source={image} />
-              <SubsTitle numberOfLines={1}>{title}</SubsTitle>
-              <SubsChannel>{channel}</SubsChannel>
-            </SubscribedItem>
+            <TouchableOpacity key={index} onPress={() => navigation.navigate('Details', { ...item })}>
+              <SubscribedItem>
+                <Image style={{ width: 135, height: 135, borderRadius: 25 }} source={image} />
+                <SubsTitle numberOfLines={1}>{title}</SubsTitle>
+                <SubsChannel>{channel}</SubsChannel>
+              </SubscribedItem>
+            </TouchableOpacity>
           );
         })}
       </StyledRow>
