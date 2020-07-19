@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, Image } from 'react-native';
 import styled from 'styled-components/native';
 
 import { MainView, colors } from './../components/styles';
-
 const { primary, gray, secondary, light, tertiary, alternate } = colors;
+
+// icons
+import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 
 const StyledRow = styled.ScrollView`
   margin-vertical: 20px;
@@ -19,6 +21,14 @@ const Tile = styled.View`
   justify-content: center;
   align-items: center;
   border-radius: 25px;
+`;
+
+const StyledImage = styled.Image`
+  width: 135px;
+  height: 135px;
+  margin-right: 20px;
+  border-radius: 100px;
+  resize-mode: cover;
 `;
 
 const TileIcon = styled.Text`
@@ -38,9 +48,15 @@ const SectionTitle = styled.Text`
 `;
 
 const firstSection = [
-  { name: 'Trending', color: secondary, icon: '' },
-  { name: 'Games', color: tertiary, icon: '' },
-  { name: 'Tech', color: alternate, icon: '' },
+  { name: 'Trending', color: secondary, icon: <MaterialCommunityIcons size={24} name="trending-up" color={light} /> },
+  { name: 'Games', color: tertiary, icon: <Ionicons name="logo-game-controller-b" size={24} color={light} /> },
+  { name: 'Tech', color: alternate, icon: <MaterialCommunityIcons size={24} name="ipod" color={light} /> },
+];
+
+const thirdSection = [
+  { image: require('./../assets/pic1.jpg') },
+  { image: require('./../assets/pic2.jpg') },
+  { image: require('./../assets/pic3.jpg') },
 ];
 
 const Home = () => {
@@ -50,7 +66,7 @@ const Home = () => {
         {firstSection.map(({ color, name, icon }, index) => {
           return (
             <Tile key={index} color={color}>
-              <TileIcon>Icon</TileIcon>
+              <TileIcon>{icon}</TileIcon>
               <TileText>{name}</TileText>
             </Tile>
           );
@@ -66,10 +82,9 @@ const Home = () => {
       <SectionTitle>Top Channels</SectionTitle>
 
       <StyledRow horizontal>
-        {/* <Tile>
-          <TileIcon>Icon</TileIcon>
-          <TileText>Trending</TileText>
-        </Tile> */}
+        {thirdSection.map(({ image }, index) => {
+          return <StyledImage key={index} source={image} />;
+        })}
       </StyledRow>
     </MainView>
   );
