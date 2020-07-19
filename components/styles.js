@@ -1,6 +1,9 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Dimensions } from 'react-native';
 import styled from 'styled-components/native';
+
+export const deviceWidth = Dimensions.get('window').width;
+export const deviceHeight = Dimensions.get('window').height;
 
 export const colors = {
   primary: '#000000',

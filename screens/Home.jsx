@@ -58,9 +58,27 @@ const firstSection = [
 ];
 
 const secondSection = [
-  { image: require('./../assets/pattern1.png'), title: 'The Reason Behind Polars', channel: 'Paul Finn', duration: 56, theme: secondary },
-  { image: require('./../assets/pattern2.png'), title: 'Basics of Shapes', channel: 'Design Daily', duration: 56, theme: alternate },
-  { image: require('./../assets/pattern3.png'), title: 'Meeting with the company', channel: 'UX Daily', duration: 56, theme: tertiary },
+  {
+    image: require('./../assets/pattern1.png'),
+    title: 'The Reason Behind Polars',
+    channel: 'Paul Finn',
+    duration: 180,
+    theme: secondary,
+  },
+  {
+    image: require('./../assets/pattern2.png'),
+    title: 'Basics of Shapes',
+    channel: 'Design Daily',
+    duration: 5036,
+    theme: alternate,
+  },
+  {
+    image: require('./../assets/pattern3.png'),
+    title: 'Meeting with the company',
+    channel: 'UX Daily',
+    duration: 4546,
+    theme: tertiary,
+  },
 ];
 
 const thirdSection = [

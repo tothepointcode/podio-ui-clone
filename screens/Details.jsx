@@ -1,9 +1,10 @@
-import * as React from 'react';
-import { View, Text, Image } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 
-import { MainView, colors, SubsTitle, SubsChannel } from './../components/styles';
+import { MainView, colors, SubsTitle, SubsChannel, deviceHeight, deviceWidth } from './../components/styles';
 const { secondary, light } = colors;
+import { calculateTime } from './../components/sharedMethods';
 
 import { Ionicons } from '@expo/vector-icons';
 
@@ -17,8 +18,9 @@ const CircularImage = styled.Image`
 `;
 
 const Wheel = styled.View`
-  height: 50%;
-  padding: 10px;
+  height: ${0.9 * deviceWidth};
+  width: ${0.9 * deviceWidth};
+  padding: 20px;
   border-radius: 500;
   border-width: 10px;
   border-color: ${(props) => props.theme};
@@ -44,6 +46,15 @@ const DetailsSubsChannel = styled(SubsChannel)`
 const Details = ({ route }) => {
   const { image, title, channel, duration, theme } = route.params;
 
+  const [value, setValue] = useState('00:00');
+  const [mValue, _] = useState(calculateTime(duration));
+  const [play, setPlay] = useState(false);
+
+  const adjustTime = (val) => {
+    const valueOfDuration = val * duration;
+    setValue(calculateTime(valueOfDuration));
+  };
+
   return (
     <MainView>
       <Wheel theme={theme}>
@@ -55,20 +66,25 @@ const Details = ({ route }) => {
       </DetailsView>
       <DetailsView style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
         <Ionicons name="ios-skip-backward" size={35} color={light} />
-        <Ionicons name="ios-play" size={45} color={light} />
+        <TouchableOpacity onPress={() => setPlay(!play)}>
+          {!play && <Ionicons name="ios-play" size={45} color={light} />}
+          {play && <Ionicons name="ios-pause" size={45} color={light} />}
+        </TouchableOpacity>
         <Ionicons name="ios-skip-forward" size={35} color={light} />
       </DetailsView>
-      <DetailsView style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <Text style={{ color: light }}>44:36</Text>
-        <Text style={{ color: light }}>56:23</Text>
+      <DetailsView style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 10 }}>
+        <Text style={{ color: light }}>{value}</Text>
+        <Text style={{ color: light }}>{mValue}</Text>
       </DetailsView>
       <DetailsView>
         <Slider
-          style={{ width: '100%', height: 40 }}
+          style={{ width: '100%', height: 10, paddingHorizontal: -20 }}
           minimumValue={0}
           maximumValue={1}
           minimumTrackTintColor={theme}
           maximumTrackTintColor={light}
+          thumbTintColor={light}
+          onValueChange={(val) => adjustTime(val)}
         />
       </DetailsView>
     </MainView>
