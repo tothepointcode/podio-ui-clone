@@ -18,10 +18,10 @@ const CircularImage = styled.Image`
 `;
 
 const Wheel = styled.View`
-  height: ${0.9 * deviceWidth};
-  width: ${0.9 * deviceWidth};
+  height: ${0.9 * deviceWidth}px;
+  width: ${0.9 * deviceWidth}px;
   padding: 20px;
-  border-radius: 500;
+  border-radius: 500px;
   border-width: 10px;
   border-color: ${(props) => props.theme};
 `;

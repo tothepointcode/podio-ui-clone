@@ -1,8 +1,11 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 
 import { MainView, colors } from './../components/styles';
+
+// Auth context
+import { AuthContext } from './../navigators/AppStack';
 
 const { primary, light, secondary } = colors;
 
@@ -41,17 +44,19 @@ const ButtonText = styled.Text`
 `;
 
 const Login = ({ navigation }) => {
+  const { _, setAuthenticated } = useContext(AuthContext);
+
   return (
     <MainView>
       <SubView>
         <IntroText>Listen to all the podcasts you want on your phone.</IntroText>
-        <StyledButton>
+        <StyledButton onPress={() => setAuthenticated(true)}>
           <ButtonText>Sign in</ButtonText>
         </StyledButton>
-        <StyledButton bordered={true} transparent={true}>
+        <StyledButton onPress={() => setAuthenticated(true)} bordered={true} transparent={true}>
           <ButtonText>Sign in with Twitter</ButtonText>
         </StyledButton>
-        <StyledButton bordered={false} transparent={true}>
+        <StyledButton onPress={() => setAuthenticated(true)} bordered={false} transparent={true}>
           <ButtonText>LOG IN</ButtonText>
         </StyledButton>
       </SubView>
