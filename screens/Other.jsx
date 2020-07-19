@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 
+// Custom imports
 import { MainView, colors } from './../components/styles';
 const { light, tertiary } = colors;
 

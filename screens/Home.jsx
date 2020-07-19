@@ -105,7 +105,10 @@ const Home = ({ navigation }) => {
         {secondSection.map((item, index) => {
           const { image, title, channel } = item;
           return (
-            <TouchableOpacity key={index} onPress={() => navigation.navigate('Details', { ...item })}>
+            <TouchableOpacity
+              key={index}
+              onPress={() => navigation.navigate('Details', { ...item, index, allData: secondSection })}
+            >
               <SubscribedItem>
                 <Image style={{ width: 135, height: 135, borderRadius: 25 }} source={image} />
                 <SubsTitle numberOfLines={1}>{title}</SubsTitle>
