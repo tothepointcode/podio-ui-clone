@@ -4,11 +4,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 // Screens
 import Home from './../screens/Home';
-import Details from './../screens/Details';
 import StyledTitle from './../components/StyledTitle';
 import StyledAvatar from './../components/StyledAvatar';
-
-import { SimpleLineIcons } from '@expo/vector-icons';
 
 import { colors } from './../components/styles';
 const { primary, light } = colors;
@@ -43,7 +40,6 @@ const HomeStack = () => {
         name="Home"
         component={Home}
       />
-      
     </Stack.Navigator>
   );
 };

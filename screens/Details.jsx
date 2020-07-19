@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 
 import { MainView, colors, SubsTitle, SubsChannel, deviceHeight, deviceWidth } from './../components/styles';
-const { secondary, light } = colors;
+const { light } = colors;
 import { calculateTime } from './../components/sharedMethods';
 
 import { Ionicons } from '@expo/vector-icons';

@@ -7,7 +7,6 @@ import Login from './../screens/Login';
 import Details from './../screens/Details';
 import TabStack from './TabStack';
 import StyledTitle from './../components/StyledTitle';
-import StyledAvatar from './../components/StyledAvatar';
 import { SimpleLineIcons } from '@expo/vector-icons';
 
 // Custom styles
@@ -15,7 +14,7 @@ import { colors } from './../components/styles';
 
 const Stack = createStackNavigator();
 
-const authenticated = true;
+const authenticated = false;
 
 const AppStack = () => {
   const { primary, light } = colors;

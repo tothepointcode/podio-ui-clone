@@ -5,8 +5,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // Screens
 import Other from './../screens/Other';
 import HomeStack from './HomeStack';
-import {colors} from './../components/styles';
-const {primary, secondary, light } = colors;
+import { colors } from './../components/styles';
+const { primary, secondary, light } = colors;
 
 // Icons
 import { Feather } from '@expo/vector-icons';
@@ -40,8 +40,8 @@ const TabStack = () => {
           height: 70,
           backgroundColor: primary,
           elevation: 0,
-          borderTopWidth: 0
-        }
+          borderTopWidth: 0,
+        },
       }}
     >
       <Tab.Screen name="Home" component={HomeStack} />
