@@ -9,7 +9,7 @@ import AppStack from './navigators/AppStack';
 export default function App() {
   return (
     <NavigationContainer>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
       <AppStack />
     </NavigationContainer>
   );

@@ -8,6 +8,7 @@ export const colors = {
   tertiary: '#6147ff',
   alternate: '#6147ff',
   light: '#ffffff',
+  gray: '#A0AEC0',
 };
 
 export const MainView = styled.View`

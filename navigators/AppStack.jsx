@@ -6,11 +6,14 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Login from './../screens/Login';
 import TabStack from './TabStack';
 import StyledTitle from './../components/StyledTitle';
+import StyledAvatar from './../components/StyledAvatar';
 
 // Custom styles
 import { colors } from './../components/styles';
 
 const Stack = createStackNavigator();
+
+const authenticated = true;
 
 const AppStack = () => {
   const { primary, light } = colors;
@@ -19,6 +22,7 @@ const AppStack = () => {
       screenOptions={{
         headerStyle: {
           backgroundColor: primary,
+          height: 110
         },
         headerTintColor: light,
         headerTitleStyle: {
@@ -26,14 +30,28 @@ const AppStack = () => {
         },
       }}
     >
-      <Stack.Screen
-        options={{
-          headerTitle: (props) => <StyledTitle {...props} />,
-        }}
-        name="Login"
-        component={Login}
-      />
-      <Stack.Screen name="TabStack" component={TabStack} />
+      {!authenticated && (
+        <Stack.Screen
+          options={{
+            headerTitle: (props) => <StyledTitle {...props} />,
+          }}
+          name="Login"
+          component={Login}
+        />
+      )}
+      {authenticated && (
+        <Stack.Screen
+          options={{
+            headerTitle: (props) => <StyledTitle {...props} authenticated />,
+            headerRight: (props) => <StyledAvatar />,
+            headerRightContainerStyle: {
+              paddingRight: 20,
+            },
+          }}
+          name="TabStack"
+          component={TabStack}
+        />
+      )}
     </Stack.Navigator>
   );
 };
