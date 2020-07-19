@@ -8,8 +8,10 @@ import Details from './../screens/Details';
 import StyledTitle from './../components/StyledTitle';
 import StyledAvatar from './../components/StyledAvatar';
 
-import { colors} from './../components/styles';
-const {primary, light} = colors;
+import { SimpleLineIcons } from '@expo/vector-icons';
+
+import { colors } from './../components/styles';
+const { primary, light } = colors;
 
 const Stack = createStackNavigator();
 
@@ -35,13 +37,13 @@ const HomeStack = () => {
             paddingRight: 20,
           },
           headerTitleContainerStyle: {
-            paddingLeft: 5
-          }
+            paddingLeft: 5,
+          },
         }}
         name="Home"
         component={Home}
       />
-      <Stack.Screen name="Details" component={Details} />
+      
     </Stack.Navigator>
   );
 };

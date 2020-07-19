@@ -2,7 +2,7 @@ import * as React from 'react';
 import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 
-import { MainView, colors } from './../components/styles';
+import { MainView, colors, SubsTitle, SubsChannel } from './../components/styles';
 const { primary, gray, secondary, light, tertiary, alternate } = colors;
 
 // icons
@@ -35,17 +35,6 @@ const SubscribedItem = styled.View`
   margin-right: 20px;
 `;
 
-const SubsTitle = styled.Text`
-  color: ${light};
-  width: 100%;
-  margin-vertical: 10px;
-  font-size: 17px;
-`;
-const SubsChannel = styled.Text`
-  color: ${gray};
-  font-size: 15px;
-`;
-
 const TileIcon = styled.Text`
   color: ${light};
   padding: 5px;
@@ -69,9 +58,9 @@ const firstSection = [
 ];
 
 const secondSection = [
-  { image: require('./../assets/pattern1.png'), title: 'The Reason Behind Polars', channel: 'Paul Finn' },
-  { image: require('./../assets/pattern2.png'), title: 'Basics of Shapes', channel: 'Design Daily' },
-  { image: require('./../assets/pattern3.png'), title: 'Meeting with the company', channel: 'UX Daily' },
+  { image: require('./../assets/pattern1.png'), title: 'The Reason Behind Polars', channel: 'Paul Finn', duration: 56, theme: secondary },
+  { image: require('./../assets/pattern2.png'), title: 'Basics of Shapes', channel: 'Design Daily', duration: 56, theme: alternate },
+  { image: require('./../assets/pattern3.png'), title: 'Meeting with the company', channel: 'UX Daily', duration: 56, theme: tertiary },
 ];
 
 const thirdSection = [

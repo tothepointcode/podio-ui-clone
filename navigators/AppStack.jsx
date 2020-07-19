@@ -4,9 +4,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 // Screens
 import Login from './../screens/Login';
+import Details from './../screens/Details';
 import TabStack from './TabStack';
 import StyledTitle from './../components/StyledTitle';
 import StyledAvatar from './../components/StyledAvatar';
+import { SimpleLineIcons } from '@expo/vector-icons';
 
 // Custom styles
 import { colors } from './../components/styles';
@@ -39,7 +41,22 @@ const AppStack = () => {
           component={Login}
         />
       )}
-      {authenticated && <Stack.Screen options={{ headerShown: false }} name="TabStack" component={TabStack} />}
+      {authenticated && (
+        <>
+          <Stack.Screen options={{ headerShown: false }} name="TabStack" component={TabStack} />
+          <Stack.Screen
+            options={{
+              title: '',
+              headerRight: (props) => <SimpleLineIcons name="options-vertical" size={20} color={light} />,
+              headerRightContainerStyle: {
+                paddingRight: 20,
+              },
+            }}
+            name="Details"
+            component={Details}
+          />
+        </>
+      )}
     </Stack.Navigator>
   );
 };

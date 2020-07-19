@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
 
 export const colors = {
@@ -15,4 +15,16 @@ export const MainView = styled.View`
   background-color: ${colors.primary};
   padding-horizontal: 20px;
   flex: 1;
+`;
+
+export const SubsTitle = styled.Text`
+  color: ${colors.light};
+  width: 100%;
+  margin-vertical: 10px;
+  font-size: 17px;
+`;
+
+export const SubsChannel = styled.Text`
+  color: ${colors.gray};
+  font-size: 15px;
 `;
