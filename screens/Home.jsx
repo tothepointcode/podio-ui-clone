@@ -10,13 +10,12 @@ import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 
 const StyledRow = styled.ScrollView`
   margin-vertical: 20px;
-  height: 100%;
 `;
 
 const Tile = styled.View`
   width: 135px;
   height: 135px;
-  background-color: ${(props) => props.color};
+  background-color: ${(props) => props.color || primary};
   margin-right: 20px;
   justify-content: center;
   align-items: center;
@@ -29,6 +28,23 @@ const StyledImage = styled.Image`
   margin-right: 20px;
   border-radius: 100px;
   resize-mode: cover;
+`;
+
+const SubscribedItem = styled.View`
+  width: 135px;
+  margin-right: 20px;
+`;
+
+const SubsTitle = styled.Text`
+  color: ${light};
+  width: 100%;
+  margin-vertical: 10px;
+  font-size: 17px;
+`;
+const SubsChannel = styled.Text`
+  color: ${gray};
+  font-size: 15px;
+
 `;
 
 const TileIcon = styled.Text`
@@ -53,6 +69,12 @@ const firstSection = [
   { name: 'Tech', color: alternate, icon: <MaterialCommunityIcons size={24} name="ipod" color={light} /> },
 ];
 
+const secondSection = [
+  { image: require('./../assets/pattern1.png'), title: 'The Reason Behind Polars', channel: 'Paul Finn' },
+  { image: require('./../assets/pattern2.png'), title: 'Basics of Shapes', channel: 'Design Daily' },
+  { image: require('./../assets/pattern3.png'), title: 'Meeting with the company', channel: 'UX Daily' },
+];
+
 const thirdSection = [
   { image: require('./../assets/pic1.jpg') },
   { image: require('./../assets/pic2.jpg') },
@@ -74,10 +96,15 @@ const Home = () => {
       </StyledRow>
       <SectionTitle>Subscribed</SectionTitle>
       <StyledRow horizontal>
-        {/* <Tile>
-          <TileIcon>Icon</TileIcon>
-          <TileText>Trending</TileText>
-        </Tile> */}
+        {secondSection.map(({ image, title, channel }, index) => {
+          return (
+            <SubscribedItem key={index}>
+              <Image style={{ width: 135, height: 135, borderRadius: 25 }} source={image} />
+              <SubsTitle numberOfLines={1}>{title}</SubsTitle>
+              <SubsChannel>{channel}</SubsChannel>
+            </SubscribedItem>
+          );
+        })}
       </StyledRow>
       <SectionTitle>Top Channels</SectionTitle>
 
